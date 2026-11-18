@@ -1,0 +1,41 @@
+Metadata-Version: 2.4
+Name: ai-answer-trust
+Version: 0.1.0
+Summary: A small tool for checking factual claims in AI-generated text.
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi<1.0,>=0.115
+Requires-Dist: uvicorn[standard]<1.0,>=0.30
+Provides-Extra: dev
+Requires-Dist: httpx<1.0,>=0.27; extra == "dev"
+Requires-Dist: pytest<9.0,>=8.0; extra == "dev"
+
+# Доверие к ответам ИИ
+
+Минимальный каркас сервиса для проверки фактических утверждений в тексте ИИ.
+Сейчас настроены веб-приложение, типизированные контракты и границы для будущих
+адаптеров поиска и извлечения утверждений. Автоматические вердикты пока не
+формируются: для этого сначала нужно подключить проверяемые источники.
+
+## Запуск
+
+Требуется Python 3.12.
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -e ".[dev]"
+uvicorn app.main:app --reload
+```
+
+Проверка доступности: http://127.0.0.1:8000/health
+Интерактивная документация API: http://127.0.0.1:8000/docs
+
+## Тесты
+
+```powershell
+pytest
+```
+
+Когда появятся ключи внешних сервисов, храните их в `.env` и добавляйте чтение
+через переменные окружения. Файл `.env` исключён из Git.

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f8fc">
+    <meta
+      name="description"
+      content="Найдите авиабилет за пару минут — без регистрации и лишних шагов."
+    >
+    <title>Быстрый билет — авиабилеты без регистрации</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Быстрый билет — главная">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M27.3 5.2c-5.7.2-11.2 2.3-15.5 6L5 10.1 2.8 12l6.3 3.2-3.8 4.1-3-.3-1.6 1.5 4.4 1.5 1.5 4.4 1.5-1.6-.3-3 4.1-3.8 3.2 6.3 1.9-2.2-.9-6.8c3.7-4.3 5.8-9.8 6-15.5Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span>быстрый<span class="brand-accent">билет</span></span>
+      </a>
+      <div class="header-note">
+        <span class="status-dot" aria-hidden="true"></span>
+        Покупка без регистрации
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span aria-hidden="true">✦</span> Путешествие начинается здесь</p>
+          <h1 id="page-title">Купите авиабилет<br>за пару минут,<br><span>без регистрации</span></h1>
+          <p class="hero-description">
+            Выберите маршрут и дату — остальное просто. Никаких аккаунтов и лишних шагов.
+          </p>
+          <div class="trust-note">
+            <span class="trust-icon" aria-hidden="true">✓</span>
+            <span>Быстрый поиск<br><strong>всего в одном месте</strong></span>
+          </div>
+        </div>
+
+        <div class="search-card">
+          <div class="card-heading">
+            <div>
+              <p class="card-kicker">Найдите свой рейс</p>
+              <h2>Куда отправимся?</h2>
+            </div>
+            <span class="card-plane" aria-hidden="true">✈</span>
+          </div>
+
+          <form class="search-form" action="#" method="get" novalidate>
+            <div class="route-fields">
+              <div class="field">
+                <label for="origin">Откуда</label>
+                <div class="input-wrap">
+                  <span class="field-icon" aria-hidden="true">↗</span>
+                  <input
+                    id="origin"
+                    name="origin"
+                    type="text"
+                    placeholder="Город или код аэропорта"
+                    list="airport-suggestions"
+                    autocomplete="off"
+                    aria-describedby="origin-error"
+                    aria-invalid="false"
+                    required
+                  >
+                </div>
+                <p class="field-error" id="origin-error" role="alert" hidden></p>
+              </div>
+              <button
+                class="swap-button"
+                id="swap-route"
+                type="button"
+                aria-label="Поменять местами города отправления и назначения"
+                title="Поменять местами"
+              ><span aria-hidden="true">⇄</span></button>
+              <div class="field">
+                <label for="destination">Куда</label>
+                <div class="input-wrap">
+                  <span class="field-icon destination-icon" aria-hidden="true">⌖</span>
+                  <input
+                    id="destination"
+                    name="destination"
+                    type="text"
+                    placeholder="Город или код аэропорта"
+                    list="airport-suggestions"
+                    autocomplete="off"
+                    aria-describedby="destination-error"
+                    aria-invalid="false"
+                    required
+                  >
+                </div>
+                <p class="field-error" id="destination-error" role="alert" hidden></p>
+              </div>
+            </div>
+            <datalist id="airport-suggestions">
+              <option value="Москва (MOW)" label="Москва — MOW, все аэропорты" data-city="moscow"></option>
+              <option value="Санкт-Петербург (LED)" label="Санкт-Петербург — LED" data-city="saint-petersburg"></option>
+              <option value="Сочи (AER)" label="Сочи — AER" data-city="sochi"></option>
+              <option value="Казань (KZN)" label="Казань — KZN" data-city="kazan"></option>
+              <option value="Екатеринбург (SVX)" label="Екатеринбург — SVX" data-city="yekaterinburg"></option>
+              <option value="Новосибирск (OVB)" label="Новосибирск — OVB" data-city="novosibirsk"></option>
+              <option value="Калининград (KGD)" label="Калининград — KGD" data-city="kaliningrad"></option>
+              <option value="Владивосток (VVO)" label="Владивосток — VVO" data-city="vladivostok"></option>
+            </datalist>
+            <p class="route-note">Тестовые подсказки городов и кодов аэропортов</p>
+
+            <div class="trip-fields">
+              <div class="field">
+                <label for="departure">Туда</label>
+                <div class="input-wrap">
+                  <span class="field-icon calendar-icon" aria-hidden="true">▦</span>
+                  <input id="departure" name="departure" type="date" required>
+                </div>
+              </div>
+              <div class="field">
+                <label for="return">Обратно <span class="optional">(необязательно)</span></label>
+                <div class="input-wrap">
+                  <span class="field-icon calendar-icon" aria-hidden="true">▦</span>
+                  <input id="return" name="return" type="date">
+                </div>
+              </div>
+            </div>
+
+            <div class="field passenger-field">
+              <label for="passengers">Пассажиры</label>
+              <div class="input-wrap select-wrap">
+                <span class="field-icon passenger-icon" aria-hidden="true">♙</span>
+                <select id="passengers" name="passengers">
+                  <option value="1">1 взрослый</option>
+                  <option value="2">2 взрослых</option>
+                  <option value="3">3 взрослых</option>
+                  <option value="4">4 взрослых</option>
+                  <option value="5">5 взрослых</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="search-button" type="submit">
+              Найти билеты <span aria-hidden="true">→</span>
+            </button>
+            <p class="form-footnote"><span aria-hidden="true">✓</span> Без регистрации и скрытых комиссий</p>
+          </form>
+        </div>
+      </section>
+
+      <section class="benefits" aria-label="Преимущества">
+        <div class="benefit">
+          <span class="benefit-icon benefit-clock" aria-hidden="true">◷</span>
+          <div><h2>Быстро</h2><p>Найдите билет за пару минут</p></div>
+        </div>
+        <div class="benefit">
+          <span class="benefit-icon benefit-check" aria-hidden="true">✓</span>
+          <div><h2>Просто</h2><p>Никаких аккаунтов и паролей</p></div>
+        </div>
+        <div class="benefit">
+          <span class="benefit-icon benefit-price" aria-hidden="true">₽</span>
+          <div><h2>Прозрачно</h2><p>Цена видна до оформления</p></div>
+        </div>
+      </section>
+    </main>
+    <script src="app.js" defer></script>
+  </body>
+</html>
